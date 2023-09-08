@@ -1,10 +1,5 @@
 #!/usr/bin/python3
 
-"""
-This function imports calculation functions from the file calculator_1.py and
-prints the result.
-"""
-
 from calculator_1 import add, sub, mul, div
 
 a = 10
