@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+
+"""
+This script performs addition of two numbers and prints the result.
+"""
+
+
 if __name__ == "__main__":
     from add_0 import add
 
@@ -7,4 +13,4 @@ if __name__ == "__main__":
 
     result = add(a, b)
 
-    print ("{:d} + {:d} = {:d}".format(a, b, result))
+    print(f"{a} + {b} = {result}")
