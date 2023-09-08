@@ -1,10 +1,5 @@
 #!/usr/bin/python3
 
-"""
-This program imports calculation functions from calculator_1.py
-and prints the results of various mathematical operations.
-"""
-
 from calculator_1 import add, sub, mul, div
 
 if __name__ = "__main__":
