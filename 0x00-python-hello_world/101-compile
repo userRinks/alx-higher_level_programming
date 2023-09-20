@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Check for exported Python file
 if [ -z "$PYFILE" ]; then
 	echo "Missing environment variable PYFILE"
 	exit 1
@@ -9,22 +11,7 @@ if [ ! -f "$PYFILE" ]; then
 	exit 1
 fi
 
-# Extract the filename without the extension
-FILENAME=$(basename "$PYFILE" .py)
-
 # Compile the Python script
-python3 -m py_compile "$PYFILE"
-
-# Find the compiled file and rename it to match the expected format
-COMPILED_FILE=$(find __pycache__ -type f -name "${FILENAME}.*.pyc" -print -quit)
-
-if [ -z "$COMPILED_FILE" ]; then
-	echo "Compiled file not found in __pycache__"
-	exit 1
-fi
-
-# Determine the file extension and rename accordingly
-EXTENSION="${COMPILED_FILE##*.}"
-mv "$COMPILED_FILE" "$FILENAME.$EXTENSION"
-
 echo "Compiling $PYFILE ..."
+
+python3 -m py_compile "$PYFILE"
