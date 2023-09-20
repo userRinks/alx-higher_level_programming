@@ -2,13 +2,13 @@
 
 # Check for exported Python file
 if [ -z "$PYFILE" ]; then
-	echo "Missing environment variable PYFILE"
-	exit 1
+    echo "Missing environment variable PYFILE"
+    exit 1
 fi
 
 if [ ! -f "$PYFILE" ]; then
-	echo "File $PYFILE not found"
-	exit 1
+    echo "File $PYFILE not found"
+    exit 1
 fi
 
 # Compile the Python script
