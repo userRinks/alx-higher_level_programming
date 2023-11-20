@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 def magic_calculation(a, b):
     result = 0
 
@@ -8,7 +6,7 @@ def magic_calculation(a, b):
             if i > a:
                 raise Exception('Too far')
             result += a ** b / i
-        except:
+        except Exception:
             result += b + a
             break
 
