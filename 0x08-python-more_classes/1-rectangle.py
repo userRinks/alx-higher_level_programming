@@ -1,48 +1,28 @@
 #!/usr/bin/python3
-"""Define a class Rectangle"""
+"""Defines a Rectangle class."""
 
 
 class Rectangle:
-    """
-    Class that defines a rectangle.
+    """Represent a rectangle."""
 
-    Attributes:
-        __width (int): Width of the rectangle.
-        __height (int): Height of the rectangle.
-    """
     def __init__(self, width=0, height=0):
-        """
-        Initializes a new Rectangle instance.
+        """Initialize a new Rectangle.
 
         Args:
-            width (int, optional): Width of the rectangle.
-            height (int, optional): Height of the rectangle.
+            width (int, optional): Width of the rectangle. Defaults to 0.
+            height (int, optional): Height of the rectangle. Defaults to 0.
         """
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
 
     @property
     def width(self):
-        """Retrieves the width of the rectangle.
-
-		Returns:
-		    int: Width of the rectangle
-		"""
+        """Get/set the width of the rectangle."""
         return self.__width
-
-    @property
-    def height(self):
-        """Retrieves the height of the rectangle.
-
-		Returns:
-		    int: Height of the rectangle
-		"""
-        return self.__height
 
     @width.setter
     def width(self, value):
-        """
-        Sets the width of the rectangle.
+        """Set the width of the rectangle.
 
         Args:
             value (int): Width of the rectangle.
@@ -58,10 +38,14 @@ class Rectangle:
         else:
             self.__width = value
 
+    @property
+    def height(self):
+        """Get/set the height of the rectangle."""
+        return self.__height
+
     @height.setter
     def height(self, value):
-        """
-        Sets the height of the rectangle.
+        """Set the height of the rectangle.
 
         Args:
             value (int): Height of the rectangle.
