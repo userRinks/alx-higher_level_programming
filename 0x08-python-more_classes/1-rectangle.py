@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines Rectangle"""
+"""Define a class Rectangle"""
 
 
 class Rectangle:
@@ -23,12 +23,20 @@ class Rectangle:
 
     @property
     def width(self):
-        """Retrieves the width of the rectangle."""
+        """Retrieves the width of the rectangle.
+
+		Returns:
+		    int: Width of the rectangle
+		"""
         return self.__width
 
     @property
     def height(self):
-        """Retrieves the height of the rectangle."""
+        """Retrieves the height of the rectangle.
+
+		Returns:
+		    int: Height of the rectangle
+		"""
         return self.__height
 
     @width.setter
