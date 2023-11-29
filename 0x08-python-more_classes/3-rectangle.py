@@ -22,8 +22,8 @@ class Rectangle:
         Creates new instances of Rectangle.
 
         Args:
-            width (int, optional): Width of rectangle. Defaults to 0.
-            height (int, optional): Height of rectangle. Defaults to 0.
+            width (int): Width of rectangle.
+            height (int): Height of rectangle.
         """
         self.width = width
         self.height = height
@@ -77,12 +77,12 @@ class Rectangle:
             self.__height = value
 
     def area(self):
-        """Calculates the area of the rectangle."""
+        """Calculates Area of the rectangle."""
         return self.__width * self.__height
 
     def perimeter(self):
         """
-        Calculates the perimeter of the rectangle.
+        Calculates Perimeter of the rectangle.
 
         Returns:
             int: Perimeter of the rectangle.
@@ -102,5 +102,5 @@ class Rectangle:
     def __repr__(self):
         """Returns a representation of the rectangle."""
         object_address = hex(id(self))
-        return "<{} object at {}>".format('3-rectangle.Rectangle', object_address)
-
+        class_name = '3-rectangle.Rectangle'
+        return "<{} object at {}>".format(class_name, object_address)
