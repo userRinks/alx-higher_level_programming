@@ -3,9 +3,9 @@
 Prints a text with 2 new lines after each '.', '?' or `:` character
 """
 
+
 def text_indentation(text):
-    """ Parameters:
-        text (str): The input text.
+    """ Parameters: text (str): The input text.
     Raises:
         TypeError: If text is not a string.
     Returns: None
