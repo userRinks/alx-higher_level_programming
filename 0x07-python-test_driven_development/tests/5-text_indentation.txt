@@ -1,132 +1,145 @@
-    >>> text_indentation = __import__('5-text_indentation').text_indentation
-    >>> text_indentation("Hello?")
-    Hello?
-    <BLANKLINE>
+# Import _5-text_indentation.py to test here
+>>> text_indentation = __import__('5-text_indentation').text_indentation
 
-No spaces are printed at the beginning of a line.
+# Test Case 1: Simple test
+>>> text_indentation("This is a simple test.")
+This is a simple test.
+<BLANKLINE>
 
-::
+# Test Case 2: Multiple sentences
+>>> text_indentation("Another test with multiple sentences. How does it work?")
+Another test with multiple sentences.
+<BLANKLINE>
+How does it work?
+<BLANKLINE>
 
-    >>> text_indentation("   Hi there.")
-    Hi there.
-    <BLANKLINE>
+# Test Case 3: Colons
+>>> text_indentation("Testing with colons: one, two, three.")
+Testing with colons:
+<BLANKLINE>
+one, two, three.
+<BLANKLINE>
 
-::
+# Test Case 4a: Newlines before the sentence
+>>> text_indentation("\nNewlines should also trigger a new paragraph.\nLike this.")
+<BLANKLINE>
+Newlines should also trigger a new paragraph.
+<BLANKLINE>
+<BLANKLINE>
+Like this.
+<BLANKLINE>
 
-    >>> text_indentation("          ")
+# Test Case 4b: Newlines after the sentence
+>>> text_indentation("Newlines should also trigger a new paragraph.\nLike this.\n")
+Newlines should also trigger a new paragraph.
+<BLANKLINE>
+<BLANKLINE>
+Like this.
+<BLANKLINE>
+<BLANKLINE>
 
-Similarly, no spaces are printed at the end of each printed line.
+# Test Case 5a: No extra spaces at the end
+>>> text_indentation("No extra spaces at the end.   ")
+No extra spaces at the end.
+<BLANKLINE>
 
-::
+# Test Case 5b: No extra spaces at the beginning
+>>> text_indentation("   No extra spaces at the beginning.")
+No extra spaces at the beginning.
+<BLANKLINE>
 
-    >>> text_indentation("Hello.   ")
-    Hello.
-    <BLANKLINE>
+# Test Case 6: TypeError
+>>> text_indentation(123)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
 
-::
+# Test Case 7: No character, no endline
+>>> text_indentation("Learn, how, to, punctuate bruh")
+Learn, how, to, punctuate bruh
 
-    >>> text_indentation("    Woah now.    This is messy.   ")
-    Woah now.
-    <BLANKLINE>
-    This is messy.
-    <BLANKLINE>
 
-New lines are only printed for the characters ``.``, ``?``, and ``:`` -
-text not ending with one of these characters is not ended with a new line.
+# Test Case 8: Tuple
+>>> text_indentation(("Tuple test.", "Second sentence."))
+Traceback (most recent call last):
+...
+TypeError: text must be a string
 
-::
+# Test Case 9: List
+>>> text_indentation(["List test.", "Another list sentence."])
+Traceback (most recent call last):
+...
+TypeError: text must be a string
 
-    >>> text_indentation("No ending period, what bad grammar")
-    No ending period, what bad grammar
+# Test Case 10: None
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
 
-New lines within a string are printed as normal.
+# Test Case 11: If the special character starts the sentence
+# Test Case 11a: Text starts with '.'
+>>> text_indentation(".Starting with a period.")
+.
+<BLANKLINE>
+Starting with a period.
+<BLANKLINE>
 
-::
+# Test Case 11b: Text starts with '?'
+>>> text_indentation("?How about starting with a question mark?")
+?
+<BLANKLINE>
+How about starting with a question mark?
+<BLANKLINE>
 
-    >>> text_indentation("Let's print a new-line! Here goes:\nPrinted.")
-    Let's print a new-line! Here goes:
-    <BLANKLINE>
-    <BLANKLINE>
-    Printed.
-    <BLANKLINE>
+# Test Case 11c: Text starts with a ':'
+>>> text_indentation(":Starting with a colon.")
+:
+<BLANKLINE>
+Starting with a colon.
+<BLANKLINE>
 
-::
+# Test Case 12: Invalid input - dictionary
+>>> text_indentation({"one": 1, "two": 2})
+Traceback (most recent call last):
+...
+TypeError: text must be a string
 
-    >>> text_indentation("\n\n\n We just printed three new lines.")
-    <BLANKLINE>
-    <BLANKLINE>
-    <BLANKLINE>
-    We just printed three new lines.
-    <BLANKLINE>
-
-::
-    >>> text_indentation("A sneaky \n new line.")
-    A sneaky 
-    new line.
-    <BLANKLINE>
-
-A combo example:
-
-::
-
-    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing "
-    ... "elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas "
-    ... "commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, "
-    ... "sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri "
-    ... "nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est "
-    ... "moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde "
-    ... "sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid "
-    ... "voles, postea. Quae animi affectio suum cuique tribuens atque hanc, "
-    ... "quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas "
-    ... "videres") # doctest: +NORMALIZE_WHITESPACE
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    <BLANKLINE>
-    Quonam modo?
-    <BLANKLINE>
-    Utrum igitur tibi litteram videor an totas paginas commovere?
-    <BLANKLINE>
-    Non autem hoc:
-    <BLANKLINE>
-    igitur ne illud quidem.
-    <BLANKLINE>
-    Fortasse id optimum, sed ubi illud:
-    <BLANKLINE>
-    Plus semper voluptatis?
-    <BLANKLINE>
-    Teneo, inquit, finem illi videri nihil dolere.
-    <BLANKLINE>
-    Transfer idem ad modestiam vel temperantiam, 
-    quae est moderatio cupiditatum rationi oboediens.
-    <BLANKLINE>
-    Si id dicis, vicimus.
-    <BLANKLINE>
-    Inde sermone vario sex illa a Dipylo stadia confecimus.
-    <BLANKLINE>
-    Sin aliud quid voles, postea.
-    <BLANKLINE>
-    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
-    <BLANKLINE>
-    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
-
-Invalid Text
-============
-
-The paramter ``text`` must be a string. Otherwise, a TypeError is raised.
-
-::
-
-    >>> text_indentation(7)
-    Traceback (most recent call last):
-    TypeError: text must be a string
-
-::
-
-    >>> text_indentation({"one": 1, "two": 2})
-    Traceback (most recent call last):
-    TypeError: text must be a string
-
-::
-
-    >>> text_indentation(None)
-    Traceback (most recent call last):
-    TypeError: text must be a string
+# Test Case 13: All at once!
+>>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing "
+... "elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas "
+... "commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, "
+... "sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri "
+... "nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est "
+... "moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde "
+... "sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid "
+... "voles, postea. Quae animi affectio suum cuique tribuens atque hanc, "
+... "quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas "
+... "videres")
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<BLANKLINE>
+Quonam modo?
+<BLANKLINE>
+Utrum igitur tibi litteram videor an totas paginas commovere?
+<BLANKLINE>
+Non autem hoc:
+<BLANKLINE>
+igitur ne illud quidem.
+<BLANKLINE>
+Fortasse id optimum, sed ubi illud:
+<BLANKLINE>
+Plus semper voluptatis?
+<BLANKLINE>
+Teneo, inquit, finem illi videri nihil dolere.
+<BLANKLINE>
+Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+<BLANKLINE>
+Si id dicis, vicimus.
+<BLANKLINE>
+Inde sermone vario sex illa a Dipylo stadia confecimus.
+<BLANKLINE>
+Sin aliud quid voles, postea.
+<BLANKLINE>
+Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+<BLANKLINE>
+Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
