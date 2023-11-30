@@ -1,0 +1,40 @@
+# Import _5-text_indentation.py to test here
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test Case 1: Simple test
+>>> text_indentation("This is a simple test.")
+This is a simple test.
+<BLANKLINE>
+
+# Test Case 2: Multiple sentences
+>>> text_indentation("Another test with multiple sentences. How does it work?")
+Another test with multiple sentences.
+<BLANKLINE>
+How does it work?
+<BLANKLINE>
+
+# Test Case 3: Colons
+>>> text_indentation("Testing with colons: one, two, three.")
+Testing with colons:
+<BLANKLINE>
+one, two, three.
+<BLANKLINE>
+
+# Test Case 4: Newlines
+>>> text_indentation("Newlines should also trigger a new paragraph.\nLike this.")
+Newlines should also trigger a new paragraph.
+<BLANKLINE>
+<BLANKLINE>
+Like this.
+<BLANKLINE>
+
+# Test Case 5: No extra spaces
+>>> text_indentation("No extra spaces at the beginning or end.   ")
+No extra spaces at the beginning or end.
+<BLANKLINE>
+
+# Test Case 6: TypeError
+>>> text_indentation(123)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
