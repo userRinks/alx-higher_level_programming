@@ -43,3 +43,92 @@
 # Test Case 10: Division with a large matrix and large divisor
 >>> matrix_divided([[100, 200, 300, 400], [500, 600, 700, 800]], 100)
 [[1.0, 2.0, 3.0, 4.0], [5.0, 6.0, 7.0, 8.0]]
+
+# Test Case 11: Division with large positive integers
+>>> matrix = [
+...     [33, 66, 3],
+...     [9, 15, 42]
+... ]
+>>> matrix_divided(matrix, 3)
+[[11.0, 22.0, 1.0], [3.0, 5.0, 14.0]]
+
+# Test Case 12: Division with a matrix of uneven row sizes
+>>> matrix = [
+...     [1, 2, 3, 4],
+...     [5, 6, 7]
+... ]
+>>> try:
+...     matrix_divided(matrix, 3)
+... except TypeError as e:
+...     str(e)
+...
+'Each row of the matrix must have the same size'
+
+# Test Case 13: Division with negative decimals
+>>> matrix = [
+...     [-2.5, -5, -7.5],
+...     [-10, -12.5, -15]
+... ]
+>>> matrix_divided(matrix, 2.5)
+[[-1.0, -2.0, -3.0], [-4.0, -5.0, -6.0]]
+
+# Test Case 14: Division with a mix of odd and even numbers
+>>> matrix = [
+...     [3, 8, 12],
+...     [21, 30, 45]
+... ]
+>>> matrix_divided(matrix, 5)
+[[0.6, 1.6, 2.4], [4.2, 6.0, 9.0]]
+
+# Test Case 15: Division with a matrix of all zeros
+>>> matrix = [
+...     [0, 0, 0],
+...     [0, 0, 0]
+... ]
+>>> matrix_divided(matrix, 2)
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+# Test Case 16: Division with a large matrix and small divisor
+>>> matrix = [
+...     [100, 200, 300, 400],
+...     [500, 600, 700, 800],
+...     [900, 1000, 1100, 1200]
+... ]
+>>> matrix_divided(matrix, 10)
+[[10.0, 20.0, 30.0, 40.0], [50.0, 60.0, 70.0, 80.0], [90.0, 100.0, 110.0, 120.0]]
+
+# Test Case 17: Division with a mix of positive and negative floats
+>>> matrix = [
+...     [1.5, -2.5, 3.5],
+...     [-4.5, 5.5, -6.5]
+... ]
+>>> matrix_divided(matrix, 1.5)
+[[1.0, -1.67, 2.33], [-3.0, 3.67, -4.33]]
+
+# Test Case 18: Division with a mix of integers and zero divisor
+>>> matrix = [
+...     [10, 20, 30],
+...     [40, 50, 60]
+... ]
+>>> try:
+...     matrix_divided(matrix, 0)
+... except ZeroDivisionError as e:
+...     str(e)
+...
+'division by zero'
+
+# Test Case 19: Division with a mix of even and odd numbers and negative divisor
+>>> matrix = [
+...     [2, 5, 8],
+...     [11, 14, 17]
+... ]
+>>> matrix_divided(matrix, -2)
+[[-1.0, -2.5, -4.0], [-5.5, -7.0, -8.5]]
+
+# Test Case 20: Division with a mix of integers and large divisor
+>>> matrix = [
+...     [3, 6, 9],
+...     [12, 15, 18]
+... ]
+>>> matrix_divided(matrix, 100)
+[[0.03, 0.06, 0.09], [0.12, 0.15, 0.18]]
