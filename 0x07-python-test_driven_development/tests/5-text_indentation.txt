@@ -38,3 +38,26 @@ No extra spaces at the beginning or end.
 Traceback (most recent call last):
 ...
 TypeError: text must be a string
+
+# Test Case 7: No character, no endline
+>>> text_indentation("Learn, how, to, punctuate bruh")
+Learn, how, to, punctuate bruh
+
+
+# Test Case 8: Tuple
+>>> text_indentation(("Tuple test.", "Second sentence."))
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+# Test Case 9: List
+>>> text_indentation(["List test.", "Another list sentence."])
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+# Test Case 10: None
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
