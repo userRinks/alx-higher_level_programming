@@ -1,10 +1,7 @@
-# Test cases for add_integer function
-
+# Test values for add_integer function
 
 # Importing the add_integer function
 >>> add_integer = __import__('0-add_integer').add_integer
-
-# Test cases
 
 # Test case 1: Adding two positive integers
 >>> add_integer(1, 2)
@@ -14,7 +11,7 @@
 >>> add_integer(100, -2)
 98
 
-# Test case 3: Adding a positive int with default value for second parameter
+# Test case 3: Adding a positive integer with the default value for the second parameter
 >>> add_integer(2)
 100
 
@@ -22,12 +19,14 @@
 >>> add_integer(100.3, -2)
 98
 
-# Test case 5: Adding a float with default value for second parameter
+# Test case 5: Adding two floats
 >>> add_integer(1000.3)
 1098
 
 # Test case 6: Handling TypeError when the second parameter is a string
 >>> add_integer(4, "School")
+Traceback (most recent call last):
+...
 TypeError: b must be an integer
 
 # Test case 7: Handling TypeError when the first parameter is a string
