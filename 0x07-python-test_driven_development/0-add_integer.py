@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-add_integer: Adds two integers with Parameters:
-    a (int or float): The first parameter.
-    b (int or float, optional): The second parameter. Defaults to 98.
+   i donr hey
 """
 
 
