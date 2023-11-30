@@ -1,19 +1,16 @@
 #!/usr/bin/python3
-""" Indent by turning a sentence into a paragraph. """
+"""
+Prints a text with 2 new lines after each '.', '?' or `:` character
+"""
 
 
 def text_indentation(text):
     """
-    Prints a text with 2 new lines after each '.', '?', or ':' character.
-
     Parameters:
         text (str): The input text.
-
     Raises:
         TypeError: If text is not a string.
-
-    Returns:
-        None
+    Returns: None
     """
     # Check if text is a string
     if not isinstance(text, str):
