@@ -61,3 +61,25 @@ TypeError: text must be a string
 Traceback (most recent call last):
 ...
 TypeError: text must be a string
+
+# Test Case 11: If the special character starts the sentence
+# Test Case 11.a): Text starts with '.'
+>>> text_indentation(".Starting with a period.")
+.
+<BLANKLINE>
+Starting with a period.
+<BLANKLINE>
+
+# Test Case 11.b): Text starts with '?'
+>>> text_indentation("?How about starting with a question mark?")
+?
+<BLANKLINE>
+How about starting with a question mark?
+<BLANKLINE>
+
+# Test Case 11.c): Text starts with a ':'
+>>> text_indentation(":Starting with a colon.")
+:
+<BLANKLINE>
+Starting with a colon.
+<BLANKLINE>
