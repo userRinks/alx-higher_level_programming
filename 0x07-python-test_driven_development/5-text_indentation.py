@@ -20,27 +20,27 @@ def text_indentation(text):
         raise TypeError("text must be a string")
 
     # Initialize the index
-    c = 0
+    index = 0
 
     # Skip leading spaces
-    while c < len(text) and text[c] == ' ':
-        c += 1
+    while index < len(text) and text[index] == ' ':
+        index += 1
 
     # Iterate through the text
-    while c < len(text):
+    while index < len(text):
         # Print the character
-        print(text[c], end="")
+        print(text[index], end="")
 
         # Check for newline or specified characters
-        if text[c] == "\n" or text[c] in ".?:":
-            if text[c] in ".?:":
+        if text[index] == "\n" or text[index] in ".?:":
+            if text[index] in ".?:":
                 print("\n")
-            c += 1
+            index += 1
 
             # Skip trailing spaces
-            while c < len(text) and text[c] == ' ':
-                c += 1
+            while index < len(text) and text[index] == ' ':
+                index += 1
             continue
 
         # Move to the next character
-        c += 1
+        index += 1
