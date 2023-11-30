@@ -1,0 +1,70 @@
+# Test cases
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test Case 1: Basic names
+>>> say_my_name("Cleveland", "Brown")
+'My name is Cleveland Brown'
+
+# Test Case 2: Another set of names
+>>> say_my_name("Heisenberg", "lmao")
+'My name is Heisenberg lmao'
+
+# Test Case 3: Invalid first name (not a string)
+>>> say_my_name(12, "Heisenberg")
+'first_name must be a string'
+
+# Test Case 4: Invalid last name (not a string)
+>>> say_my_name("Heisenberg", 23)
+'last_name must be a string'
+
+# Test Case 5: Invalid first name (list)
+>>> say_my_name(["Mr", "Heisenberg"], "White")
+'first_name must be a string'
+
+# Test Case 6: Invalid first name (float)
+>>> say_my_name(100.2, 1)
+'first_name must be a string'
+
+# Test Case 7: Invalid first name (float)
+>>> say_my_name(100.2, "Walter White")
+'first_name must be a string'
+
+# Test Case 8: Invalid last name (float)
+>>> say_my_name("Walter White", 100.2)
+'last_name must be a string'
+
+# Test Case 9: Invalid first name (None)
+>>> say_my_name(None)
+'first_name must be a string'
+
+# Test Case 10: Another set of names
+>>> say_my_name("Julien", "Barbier")
+'My name is Julien Barbier'
+
+# Test Case 11: Invalid last name (None)
+>>> say_my_name("Heisenberg", None)
+'last_name must be a string'
+
+# Test Case 12: Both names are None
+>>> say_my_name(None, None)
+'first_name must be a string'
+
+# Test Case 13: Missing required positional argument
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+# Test Case 14: Undefined variable as first name
+>>> say_my_name(name, "White")
+Traceback (most recent call last):
+...
+NameError: name 'name' is not defined
+
+# Test Case 15: Numeric strings as names
+>>> say_my_name(str(100), str(1))
+'My name is 100 1'
+
+# Test Case 16: Empty first name
+>>> say_my_name("", "Heisenberg")
+'My name is  Heisenberg'
