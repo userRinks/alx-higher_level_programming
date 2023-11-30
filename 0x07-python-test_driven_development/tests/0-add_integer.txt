@@ -1,4 +1,11 @@
-# Test cases for add_integer function
+===========================
+0-add_integer.py
+===========================
+
+This module defines an integer addition function add_integer.
+
+(...) returns the addition of its two arguments.
+
 
 >>> add_integer = __import__('0-add_integer').add_integer
 
