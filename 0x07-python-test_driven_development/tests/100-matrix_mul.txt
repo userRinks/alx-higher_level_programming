@@ -1,0 +1,42 @@
+# Import the function from 100-matrix,mul
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+# Test Case 1: Valid multiplication
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+# Test Case 2: Valid multiplication with different sizes
+>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+[[13, 16]]
+
+# Test Case 3: Empty matrices
+>>> matrix_mul([], [])
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty or m_b can't be empty
+
+# Test Case 4: Empty rows
+>>> matrix_mul([[], []], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty or m_b can't be empty
+
+# Test Case 5: Non-numeric element in matrix
+>>> matrix_mul([[1, 2], [3, 'a']], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+...
+TypeError: m_a should contain only integers or floats or m_b should contain only integers or floats
+
+# Test Case 6: Non-numeric matrix
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [5, 6]])
+Traceback (most recent call last):
+...
+ValueError: m_a and m_b can't be multiplied
+
+# Test Case 7: Matrices with different inner sizes
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6]])
+[[9, 12, 15], [19, 26, 33]]
+
+# Test Case 8: Valid multiplication with negative numbers
+>>> matrix_mul([[1, -2], [-3, 4]], [[-1, 2], [3, -4]])
+[[-7, 10], [15, -22]]
