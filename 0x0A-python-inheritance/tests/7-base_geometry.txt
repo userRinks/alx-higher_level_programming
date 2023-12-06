@@ -1,0 +1,56 @@
+# Import BaseGeometry class and initialize it to bg
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+# Test Case 1: Calling area method on BaseGeometry
+>>> BaseGeometry().area()
+Traceback (most recent call last):
+  ...
+Exception: area() is not implemented
+
+# Test Case 2: Validating integers with integer_validator
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+
+# Test Case 3: Trying to validate a non-integer value with integer_validator
+>>> try:
+...     bg.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+
+# Test Case 4: Trying to validate an integer less than or equal to 0 with integer_validator
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+
+# Test Case 5: Trying to validate a negative integer with integer_validator
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
+
+# Test Case 6: Trying to validate an infinite integer with integer_validator
+>>> try:
+...     bg.integer_validator("infinity", float('inf'))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] infinity must be an integer
+
+# Test Case 7: Trying to validate a float with integer_validator
+>>> try:
+...     bg.integer_validator("height", 5.5)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] height must be an integer
+
+# Test Case 8: Trying to validate with more than required arguments
+>>> try:
+...     bg.integer_validator("extra", 10, 20)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
