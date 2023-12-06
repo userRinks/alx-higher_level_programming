@@ -1,61 +1,46 @@
 #!/usr/bin/python3
 """
-101-stats.py - Computes metrics from stdin
+Reads input lines from stdin, computes metrics, and prints stats
 """
 
-import sys
-
-def print_metrics(total_size, status_codes):
-    """
-    Print metrics based on total file size and status codes.
-
-    Args:
-        total_size (int): Total file size.
-        status_codes (dict): Dictionary with status codes and their counts.
-    """
-    print("File size: {}".format(total_size))
-    for code in sorted(status_codes):
-        print("{}: {}".format(code, status_codes[code]))
-
-def parse_line(line, total_size, status_codes):
-    """
-    Parse a line and update metrics.
-
-    Args:
-        line (str): Input line.
-        total_size (int): Current total file size.
-        status_codes (dict): Dictionary with status codes and their counts.
-    """
-    try:
-        parts = line.split()
-        size = int(parts[-1])
-        status_code = parts[-2]
-
-        total_size += size
-
-        if status_code in status_codes:
-            status_codes[status_code] += 1
-        else:
-            status_codes[status_code] = 1
-
-        return total_size, status_codes
-    except ValueError:
-        return total_size, status_codes
-
-def main():
-    total_size = 0
-    status_codes = {}
-
-    try:
-        for i, line in enumerate(sys.stdin, 1):
-            total_size, status_codes = parse_line(line, total_size, status_codes)
-
-            if i % 10 == 0:
-                print_metrics(total_size, status_codes)
-
-    except KeyboardInterrupt:
-        print_metrics(total_size, status_codes)
-        raise
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    # Total file size accumulator
+    total_file_size = 0
+
+    # Counts of each HTTP status code
+    status_code_counts = {}
+
+    while True:
+        try:
+            # Line processing counter
+            counter = 0
+            for line in sys.stdin:
+                # Split the line into tokens
+                line_tokens = line.split()
+
+                # Update total file size
+                total_file_size += int(line_tokens[8])
+
+                # Update status code counts
+                status_code = line_tokens[7]
+                if status_code not in status_code_counts:
+                    status_code_counts[status_code] = 1
+                else:
+                    status_code_counts[status_code] += 1
+
+                # Break after processing 10 lines
+                if counter == 10:
+                    break
+                counter += 1
+
+        # Exit gracefully on keyboard interrupt
+        except KeyboardInterrupt:
+            exit()
+        finally:
+            # Print computed metrics
+            print("File size: {}".format(total_file_size))
+            for key in sorted(status_code_counts):
+                print("{}: {}".format(key, status_code_counts[key]))
