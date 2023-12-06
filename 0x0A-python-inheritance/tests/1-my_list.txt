@@ -1,0 +1,71 @@
+"""
+Test cases for MyList class
+"""
+
+# Import function
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+
+# Test case 1: print_sorted() returns the list sorted.
+>>> isinstance(my_list, list)
+True
+>>> my_list.print_sorted()
+[]
+
+# Test case 2: Adding positive integers and printing sorted list
+>>> my_list.append(7)
+>>> my_list.append(3)
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+[1, 3, 7]
+
+# Test case 3: Including zero values and printing sorted list
+>>> my_list.append(0)
+>>> my_list.print_sorted()
+[0, 1, 3, 7]
+
+# Test case 4: Attempting to add infinite integer (should raise ValueError)
+>>> try:
+...     my_list.append(int('inf'))
+... except ValueError:
+...     pass  # Expected behavior
+
+# Test case 5: Including negative values and printing sorted list
+>>> my_list.append(-15)
+>>> my_list.print_sorted()
+[-15, 0, 1, 3, 7]
+
+# Test case 6: Repeating elements and printing sorted list
+>>> my_list.append(-15)
+>>> my_list.append(0)
+>>> my_list.append(7)
+>>> my_list.print_sorted()
+[-15, -15, 0, 0, 1, 3, 7, 7]
+
+# Test case 7: All elements are the same, printing sorted list
+>>> my_list.clear()
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[5, 5, 5, 5, 5]
+
+# Test case 8: Adding a large positive integer and printing sorted list
+>>> my_list.append(10000000000000000000000000000000000000000000)
+>>> my_list.print_sorted()
+[5, 5, 5, 5, 5, 10000000000000000000000000000000000000000000]
+
+# Test case 9: Attempting to add None value (should raise TypeError)
+>>> try:
+...     my_list.append(None)
+... except TypeError:
+...     pass  # Expected behavior
+
+# Test case 10: Attempting to add NULL value (should raise NameError)
+>>> try:
+...     my_list.append(NULL)
+... except NameError:
+...     pass  # Expected behavior
+
